@@ -10,33 +10,272 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as CommercialRouteImport } from './routes/commercial'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DomesticRouteImport } from './routes/domestic'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as SolarCalculatorRouteImport } from './routes/solar-calculator'
+import { Route as CommercialBackupPowerRouteImport } from './routes/commercial.backup-power'
+import { Route as CommercialElectricalRouteImport } from './routes/commercial.electrical'
+import { Route as CommercialEnergyAuditRouteImport } from './routes/commercial.energy-audit'
+import { Route as CommercialIndustrialRouteImport } from './routes/commercial.industrial'
+import { Route as CommercialMaintenanceRouteImport } from './routes/commercial.maintenance'
+import { Route as CommercialSolarRouteImport } from './routes/commercial.solar'
+import { Route as DomesticAcRouteImport } from './routes/domestic.ac'
+import { Route as DomesticBackupEvRouteImport } from './routes/domestic.backup-ev'
+import { Route as DomesticElectricalRouteImport } from './routes/domestic.electrical'
+import { Route as DomesticEnergyAuditRouteImport } from './routes/domestic.energy-audit'
+import { Route as DomesticMaintenanceRouteImport } from './routes/domestic.maintenance'
+import { Route as DomesticSolarRouteImport } from './routes/domestic.solar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialRoute = CommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomesticRoute = DomesticRouteImport.update({
+  id: '/domestic',
+  path: '/domestic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolarCalculatorRoute = SolarCalculatorRouteImport.update({
+  id: '/solar-calculator',
+  path: '/solar-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialBackupPowerRoute = CommercialBackupPowerRouteImport.update({
+  id: '/backup-power',
+  path: '/backup-power',
+  getParentRoute: () => CommercialRoute,
+} as any)
+const CommercialElectricalRoute = CommercialElectricalRouteImport.update({
+  id: '/electrical',
+  path: '/electrical',
+  getParentRoute: () => CommercialRoute,
+} as any)
+const CommercialEnergyAuditRoute = CommercialEnergyAuditRouteImport.update({
+  id: '/energy-audit',
+  path: '/energy-audit',
+  getParentRoute: () => CommercialRoute,
+} as any)
+const CommercialIndustrialRoute = CommercialIndustrialRouteImport.update({
+  id: '/industrial',
+  path: '/industrial',
+  getParentRoute: () => CommercialRoute,
+} as any)
+const CommercialMaintenanceRoute = CommercialMaintenanceRouteImport.update({
+  id: '/maintenance',
+  path: '/maintenance',
+  getParentRoute: () => CommercialRoute,
+} as any)
+const CommercialSolarRoute = CommercialSolarRouteImport.update({
+  id: '/solar',
+  path: '/solar',
+  getParentRoute: () => CommercialRoute,
+} as any)
+const DomesticAcRoute = DomesticAcRouteImport.update({
+  id: '/ac',
+  path: '/ac',
+  getParentRoute: () => DomesticRoute,
+} as any)
+const DomesticBackupEvRoute = DomesticBackupEvRouteImport.update({
+  id: '/backup-ev',
+  path: '/backup-ev',
+  getParentRoute: () => DomesticRoute,
+} as any)
+const DomesticElectricalRoute = DomesticElectricalRouteImport.update({
+  id: '/electrical',
+  path: '/electrical',
+  getParentRoute: () => DomesticRoute,
+} as any)
+const DomesticEnergyAuditRoute = DomesticEnergyAuditRouteImport.update({
+  id: '/energy-audit',
+  path: '/energy-audit',
+  getParentRoute: () => DomesticRoute,
+} as any)
+const DomesticMaintenanceRoute = DomesticMaintenanceRouteImport.update({
+  id: '/maintenance',
+  path: '/maintenance',
+  getParentRoute: () => DomesticRoute,
+} as any)
+const DomesticSolarRoute = DomesticSolarRouteImport.update({
+  id: '/solar',
+  path: '/solar',
+  getParentRoute: () => DomesticRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/app': typeof AppRoute
+  '/commercial': typeof CommercialRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/domestic': typeof DomesticRouteWithChildren
+  '/how-it-works': typeof HowItWorksRoute
+  '/solar-calculator': typeof SolarCalculatorRoute
+  '/commercial/backup-power': typeof CommercialBackupPowerRoute
+  '/commercial/electrical': typeof CommercialElectricalRoute
+  '/commercial/energy-audit': typeof CommercialEnergyAuditRoute
+  '/commercial/industrial': typeof CommercialIndustrialRoute
+  '/commercial/maintenance': typeof CommercialMaintenanceRoute
+  '/commercial/solar': typeof CommercialSolarRoute
+  '/domestic/ac': typeof DomesticAcRoute
+  '/domestic/backup-ev': typeof DomesticBackupEvRoute
+  '/domestic/electrical': typeof DomesticElectricalRoute
+  '/domestic/energy-audit': typeof DomesticEnergyAuditRoute
+  '/domestic/maintenance': typeof DomesticMaintenanceRoute
+  '/domestic/solar': typeof DomesticSolarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/app': typeof AppRoute
+  '/commercial': typeof CommercialRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/domestic': typeof DomesticRouteWithChildren
+  '/how-it-works': typeof HowItWorksRoute
+  '/solar-calculator': typeof SolarCalculatorRoute
+  '/commercial/backup-power': typeof CommercialBackupPowerRoute
+  '/commercial/electrical': typeof CommercialElectricalRoute
+  '/commercial/energy-audit': typeof CommercialEnergyAuditRoute
+  '/commercial/industrial': typeof CommercialIndustrialRoute
+  '/commercial/maintenance': typeof CommercialMaintenanceRoute
+  '/commercial/solar': typeof CommercialSolarRoute
+  '/domestic/ac': typeof DomesticAcRoute
+  '/domestic/backup-ev': typeof DomesticBackupEvRoute
+  '/domestic/electrical': typeof DomesticElectricalRoute
+  '/domestic/energy-audit': typeof DomesticEnergyAuditRoute
+  '/domestic/maintenance': typeof DomesticMaintenanceRoute
+  '/domestic/solar': typeof DomesticSolarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/app': typeof AppRoute
+  '/commercial': typeof CommercialRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/domestic': typeof DomesticRouteWithChildren
+  '/how-it-works': typeof HowItWorksRoute
+  '/solar-calculator': typeof SolarCalculatorRoute
+  '/commercial/backup-power': typeof CommercialBackupPowerRoute
+  '/commercial/electrical': typeof CommercialElectricalRoute
+  '/commercial/energy-audit': typeof CommercialEnergyAuditRoute
+  '/commercial/industrial': typeof CommercialIndustrialRoute
+  '/commercial/maintenance': typeof CommercialMaintenanceRoute
+  '/commercial/solar': typeof CommercialSolarRoute
+  '/domestic/ac': typeof DomesticAcRoute
+  '/domestic/backup-ev': typeof DomesticBackupEvRoute
+  '/domestic/electrical': typeof DomesticElectricalRoute
+  '/domestic/energy-audit': typeof DomesticEnergyAuditRoute
+  '/domestic/maintenance': typeof DomesticMaintenanceRoute
+  '/domestic/solar': typeof DomesticSolarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/app'
+    | '/commercial'
+    | '/contact'
+    | '/domestic'
+    | '/how-it-works'
+    | '/solar-calculator'
+    | '/commercial/backup-power'
+    | '/commercial/electrical'
+    | '/commercial/energy-audit'
+    | '/commercial/industrial'
+    | '/commercial/maintenance'
+    | '/commercial/solar'
+    | '/domestic/ac'
+    | '/domestic/backup-ev'
+    | '/domestic/electrical'
+    | '/domestic/energy-audit'
+    | '/domestic/maintenance'
+    | '/domestic/solar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/app'
+    | '/commercial'
+    | '/contact'
+    | '/domestic'
+    | '/how-it-works'
+    | '/solar-calculator'
+    | '/commercial/backup-power'
+    | '/commercial/electrical'
+    | '/commercial/energy-audit'
+    | '/commercial/industrial'
+    | '/commercial/maintenance'
+    | '/commercial/solar'
+    | '/domestic/ac'
+    | '/domestic/backup-ev'
+    | '/domestic/electrical'
+    | '/domestic/energy-audit'
+    | '/domestic/maintenance'
+    | '/domestic/solar'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/app'
+    | '/commercial'
+    | '/contact'
+    | '/domestic'
+    | '/how-it-works'
+    | '/solar-calculator'
+    | '/commercial/backup-power'
+    | '/commercial/electrical'
+    | '/commercial/energy-audit'
+    | '/commercial/industrial'
+    | '/commercial/maintenance'
+    | '/commercial/solar'
+    | '/domestic/ac'
+    | '/domestic/backup-ev'
+    | '/domestic/electrical'
+    | '/domestic/energy-audit'
+    | '/domestic/maintenance'
+    | '/domestic/solar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AppRoute: typeof AppRoute
+  CommercialRoute: typeof CommercialRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  DomesticRoute: typeof DomesticRouteWithChildren
+  HowItWorksRoute: typeof HowItWorksRoute
+  SolarCalculatorRoute: typeof SolarCalculatorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +287,195 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial': {
+      id: '/commercial'
+      path: '/commercial'
+      fullPath: '/commercial'
+      preLoaderRoute: typeof CommercialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/domestic': {
+      id: '/domestic'
+      path: '/domestic'
+      fullPath: '/domestic'
+      preLoaderRoute: typeof DomesticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solar-calculator': {
+      id: '/solar-calculator'
+      path: '/solar-calculator'
+      fullPath: '/solar-calculator'
+      preLoaderRoute: typeof SolarCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial/backup-power': {
+      id: '/commercial/backup-power'
+      path: '/backup-power'
+      fullPath: '/commercial/backup-power'
+      preLoaderRoute: typeof CommercialBackupPowerRouteImport
+      parentRoute: typeof CommercialRoute
+    }
+    '/commercial/electrical': {
+      id: '/commercial/electrical'
+      path: '/electrical'
+      fullPath: '/commercial/electrical'
+      preLoaderRoute: typeof CommercialElectricalRouteImport
+      parentRoute: typeof CommercialRoute
+    }
+    '/commercial/energy-audit': {
+      id: '/commercial/energy-audit'
+      path: '/energy-audit'
+      fullPath: '/commercial/energy-audit'
+      preLoaderRoute: typeof CommercialEnergyAuditRouteImport
+      parentRoute: typeof CommercialRoute
+    }
+    '/commercial/industrial': {
+      id: '/commercial/industrial'
+      path: '/industrial'
+      fullPath: '/commercial/industrial'
+      preLoaderRoute: typeof CommercialIndustrialRouteImport
+      parentRoute: typeof CommercialRoute
+    }
+    '/commercial/maintenance': {
+      id: '/commercial/maintenance'
+      path: '/maintenance'
+      fullPath: '/commercial/maintenance'
+      preLoaderRoute: typeof CommercialMaintenanceRouteImport
+      parentRoute: typeof CommercialRoute
+    }
+    '/commercial/solar': {
+      id: '/commercial/solar'
+      path: '/solar'
+      fullPath: '/commercial/solar'
+      preLoaderRoute: typeof CommercialSolarRouteImport
+      parentRoute: typeof CommercialRoute
+    }
+    '/domestic/ac': {
+      id: '/domestic/ac'
+      path: '/ac'
+      fullPath: '/domestic/ac'
+      preLoaderRoute: typeof DomesticAcRouteImport
+      parentRoute: typeof DomesticRoute
+    }
+    '/domestic/backup-ev': {
+      id: '/domestic/backup-ev'
+      path: '/backup-ev'
+      fullPath: '/domestic/backup-ev'
+      preLoaderRoute: typeof DomesticBackupEvRouteImport
+      parentRoute: typeof DomesticRoute
+    }
+    '/domestic/electrical': {
+      id: '/domestic/electrical'
+      path: '/electrical'
+      fullPath: '/domestic/electrical'
+      preLoaderRoute: typeof DomesticElectricalRouteImport
+      parentRoute: typeof DomesticRoute
+    }
+    '/domestic/energy-audit': {
+      id: '/domestic/energy-audit'
+      path: '/energy-audit'
+      fullPath: '/domestic/energy-audit'
+      preLoaderRoute: typeof DomesticEnergyAuditRouteImport
+      parentRoute: typeof DomesticRoute
+    }
+    '/domestic/maintenance': {
+      id: '/domestic/maintenance'
+      path: '/maintenance'
+      fullPath: '/domestic/maintenance'
+      preLoaderRoute: typeof DomesticMaintenanceRouteImport
+      parentRoute: typeof DomesticRoute
+    }
+    '/domestic/solar': {
+      id: '/domestic/solar'
+      path: '/solar'
+      fullPath: '/domestic/solar'
+      preLoaderRoute: typeof DomesticSolarRouteImport
+      parentRoute: typeof DomesticRoute
+    }
   }
 }
 
+interface CommercialRouteChildren {
+  CommercialBackupPowerRoute: typeof CommercialBackupPowerRoute
+  CommercialElectricalRoute: typeof CommercialElectricalRoute
+  CommercialEnergyAuditRoute: typeof CommercialEnergyAuditRoute
+  CommercialIndustrialRoute: typeof CommercialIndustrialRoute
+  CommercialMaintenanceRoute: typeof CommercialMaintenanceRoute
+  CommercialSolarRoute: typeof CommercialSolarRoute
+}
+
+const CommercialRouteChildren: CommercialRouteChildren = {
+  CommercialBackupPowerRoute: CommercialBackupPowerRoute,
+  CommercialElectricalRoute: CommercialElectricalRoute,
+  CommercialEnergyAuditRoute: CommercialEnergyAuditRoute,
+  CommercialIndustrialRoute: CommercialIndustrialRoute,
+  CommercialMaintenanceRoute: CommercialMaintenanceRoute,
+  CommercialSolarRoute: CommercialSolarRoute,
+}
+
+const CommercialRouteWithChildren = CommercialRoute._addFileChildren(
+  CommercialRouteChildren,
+)
+
+interface DomesticRouteChildren {
+  DomesticAcRoute: typeof DomesticAcRoute
+  DomesticBackupEvRoute: typeof DomesticBackupEvRoute
+  DomesticElectricalRoute: typeof DomesticElectricalRoute
+  DomesticEnergyAuditRoute: typeof DomesticEnergyAuditRoute
+  DomesticMaintenanceRoute: typeof DomesticMaintenanceRoute
+  DomesticSolarRoute: typeof DomesticSolarRoute
+}
+
+const DomesticRouteChildren: DomesticRouteChildren = {
+  DomesticAcRoute: DomesticAcRoute,
+  DomesticBackupEvRoute: DomesticBackupEvRoute,
+  DomesticElectricalRoute: DomesticElectricalRoute,
+  DomesticEnergyAuditRoute: DomesticEnergyAuditRoute,
+  DomesticMaintenanceRoute: DomesticMaintenanceRoute,
+  DomesticSolarRoute: DomesticSolarRoute,
+}
+
+const DomesticRouteWithChildren = DomesticRoute._addFileChildren(
+  DomesticRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AppRoute: AppRoute,
+  CommercialRoute: CommercialRouteWithChildren,
+  ContactRoute: ContactRoute,
+  DomesticRoute: DomesticRouteWithChildren,
+  HowItWorksRoute: HowItWorksRoute,
+  SolarCalculatorRoute: SolarCalculatorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
