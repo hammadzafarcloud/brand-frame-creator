@@ -1,24 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute } from '@tanstack/react-router';
+import { Check, ShieldCheck, Zap, MapPin, Sun } from 'lucide-react';
+import { Header, Footer, PlayButton, QuoteButton, PathCards, Benefits, AppGallery, CTA, pageHead } from '@/components/site';
+import { PhonePreview } from '@/components/phone-preview';
+import hero from '@/assets/solar-home.jpg';
+export const Route = createFileRoute('/')({head:()=>pageHead('Solar and Electrical Services in Pakistan', 'Book trusted technicians, size your solar system, understand your electricity bill and track every job in one app. For homes and businesses.'),component:Index});
+function Index(){return <><Header/><main><section className="hero"><img className="hero-image" src={hero} alt="Rooftop solar panels on a modern home" width={1920} height={1024}/><div className="container hero-inner"><div className="hero-copy"><div className="eyebrow">Smarter power. Simpler living.</div><h1>Solar and Electrical Services,<br/><span>One Tap Away.</span></h1><p>Book trusted technicians, size your solar system, understand your electricity bill and track every job in one app. For homes and businesses.</p><div className="hero-actions"><PlayButton/><QuoteButton/></div><div className="hero-trust"><span><Check/>Verified technicians</span><span><Check/>Clear communication</span><span><Check/>Local support</span></div></div><div className="phone-stage"><PhonePreview/><PhonePreview screen="Services"/><div className="float-notice"><span><ShieldCheck/></span><div><strong>Technician on the way</strong><small>Your home is in good hands.</small></div></div><span className="preview-label">App screen previews</span></div></div></section><div className="trust-band"><div className="container trust-inner"><span>Your home. Your business. <strong>Our expertise.</strong></span><span><Sun/>Solar & energy</span><span><Zap/>Electrical & backup</span><span><MapPin/>Made for Pakistan</span></div></div><PathCards/><AppGallery/><Benefits/><CTA/></main><Footer/></>}
