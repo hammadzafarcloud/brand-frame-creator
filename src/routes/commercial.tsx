@@ -1,4 +1,3 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { ContentPage, pageHead } from '@/components/site';
-export const Route = createFileRoute("/commercial")({head:()=>pageHead("Power Solutions for Your Business","Lower energy costs, fewer outages and dependable electrical support for shops, offices, clinics, schools and factories."),component:Page});
-function Page(){return <ContentPage path="/commercial"/>}
+import { createFileRoute, Outlet } from '@tanstack/react-router';
+export const Route=createFileRoute('/commercial')({component:Layout});
+function Layout(){return <Outlet/>}

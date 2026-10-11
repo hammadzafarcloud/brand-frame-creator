@@ -17,12 +17,14 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DomesticRouteImport } from './routes/domestic'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as SolarCalculatorRouteImport } from './routes/solar-calculator'
+import { Route as CommercialIndexRouteImport } from './routes/commercial.index'
 import { Route as CommercialBackupPowerRouteImport } from './routes/commercial.backup-power'
 import { Route as CommercialElectricalRouteImport } from './routes/commercial.electrical'
 import { Route as CommercialEnergyAuditRouteImport } from './routes/commercial.energy-audit'
 import { Route as CommercialIndustrialRouteImport } from './routes/commercial.industrial'
 import { Route as CommercialMaintenanceRouteImport } from './routes/commercial.maintenance'
 import { Route as CommercialSolarRouteImport } from './routes/commercial.solar'
+import { Route as DomesticIndexRouteImport } from './routes/domestic.index'
 import { Route as DomesticAcRouteImport } from './routes/domestic.ac'
 import { Route as DomesticBackupEvRouteImport } from './routes/domestic.backup-ev'
 import { Route as DomesticElectricalRouteImport } from './routes/domestic.electrical'
@@ -70,6 +72,11 @@ const SolarCalculatorRoute = SolarCalculatorRouteImport.update({
   path: '/solar-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommercialIndexRoute = CommercialIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CommercialRoute,
+} as any)
 const CommercialBackupPowerRoute = CommercialBackupPowerRouteImport.update({
   id: '/backup-power',
   path: '/backup-power',
@@ -99,6 +106,11 @@ const CommercialSolarRoute = CommercialSolarRouteImport.update({
   id: '/solar',
   path: '/solar',
   getParentRoute: () => CommercialRoute,
+} as any)
+const DomesticIndexRoute = DomesticIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DomesticRoute,
 } as any)
 const DomesticAcRoute = DomesticAcRouteImport.update({
   id: '/ac',
@@ -152,14 +164,14 @@ export interface FileRoutesByFullPath {
   '/domestic/energy-audit': typeof DomesticEnergyAuditRoute
   '/domestic/maintenance': typeof DomesticMaintenanceRoute
   '/domestic/solar': typeof DomesticSolarRoute
+  '/commercial/': typeof CommercialIndexRoute
+  '/domestic/': typeof DomesticIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/app': typeof AppRoute
-  '/commercial': typeof CommercialRouteWithChildren
   '/contact': typeof ContactRoute
-  '/domestic': typeof DomesticRouteWithChildren
   '/how-it-works': typeof HowItWorksRoute
   '/solar-calculator': typeof SolarCalculatorRoute
   '/commercial/backup-power': typeof CommercialBackupPowerRoute
@@ -174,6 +186,8 @@ export interface FileRoutesByTo {
   '/domestic/energy-audit': typeof DomesticEnergyAuditRoute
   '/domestic/maintenance': typeof DomesticMaintenanceRoute
   '/domestic/solar': typeof DomesticSolarRoute
+  '/commercial': typeof CommercialIndexRoute
+  '/domestic': typeof DomesticIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -197,6 +211,8 @@ export interface FileRoutesById {
   '/domestic/energy-audit': typeof DomesticEnergyAuditRoute
   '/domestic/maintenance': typeof DomesticMaintenanceRoute
   '/domestic/solar': typeof DomesticSolarRoute
+  '/commercial/': typeof CommercialIndexRoute
+  '/domestic/': typeof DomesticIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -221,14 +237,14 @@ export interface FileRouteTypes {
     | '/domestic/energy-audit'
     | '/domestic/maintenance'
     | '/domestic/solar'
+    | '/commercial/'
+    | '/domestic/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/app'
-    | '/commercial'
     | '/contact'
-    | '/domestic'
     | '/how-it-works'
     | '/solar-calculator'
     | '/commercial/backup-power'
@@ -243,6 +259,8 @@ export interface FileRouteTypes {
     | '/domestic/energy-audit'
     | '/domestic/maintenance'
     | '/domestic/solar'
+    | '/commercial'
+    | '/domestic'
   id:
     | '__root__'
     | '/'
@@ -265,6 +283,8 @@ export interface FileRouteTypes {
     | '/domestic/energy-audit'
     | '/domestic/maintenance'
     | '/domestic/solar'
+    | '/commercial/'
+    | '/domestic/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -336,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolarCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/commercial/': {
+      id: '/commercial/'
+      path: '/'
+      fullPath: '/commercial/'
+      preLoaderRoute: typeof CommercialIndexRouteImport
+      parentRoute: typeof CommercialRoute
+    }
     '/commercial/backup-power': {
       id: '/commercial/backup-power'
       path: '/backup-power'
@@ -377,6 +404,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/commercial/solar'
       preLoaderRoute: typeof CommercialSolarRouteImport
       parentRoute: typeof CommercialRoute
+    }
+    '/domestic/': {
+      id: '/domestic/'
+      path: '/'
+      fullPath: '/domestic/'
+      preLoaderRoute: typeof DomesticIndexRouteImport
+      parentRoute: typeof DomesticRoute
     }
     '/domestic/ac': {
       id: '/domestic/ac'
@@ -430,6 +464,7 @@ interface CommercialRouteChildren {
   CommercialIndustrialRoute: typeof CommercialIndustrialRoute
   CommercialMaintenanceRoute: typeof CommercialMaintenanceRoute
   CommercialSolarRoute: typeof CommercialSolarRoute
+  CommercialIndexRoute: typeof CommercialIndexRoute
 }
 
 const CommercialRouteChildren: CommercialRouteChildren = {
@@ -439,6 +474,7 @@ const CommercialRouteChildren: CommercialRouteChildren = {
   CommercialIndustrialRoute: CommercialIndustrialRoute,
   CommercialMaintenanceRoute: CommercialMaintenanceRoute,
   CommercialSolarRoute: CommercialSolarRoute,
+  CommercialIndexRoute: CommercialIndexRoute,
 }
 
 const CommercialRouteWithChildren = CommercialRoute._addFileChildren(
@@ -452,6 +488,7 @@ interface DomesticRouteChildren {
   DomesticEnergyAuditRoute: typeof DomesticEnergyAuditRoute
   DomesticMaintenanceRoute: typeof DomesticMaintenanceRoute
   DomesticSolarRoute: typeof DomesticSolarRoute
+  DomesticIndexRoute: typeof DomesticIndexRoute
 }
 
 const DomesticRouteChildren: DomesticRouteChildren = {
@@ -461,6 +498,7 @@ const DomesticRouteChildren: DomesticRouteChildren = {
   DomesticEnergyAuditRoute: DomesticEnergyAuditRoute,
   DomesticMaintenanceRoute: DomesticMaintenanceRoute,
   DomesticSolarRoute: DomesticSolarRoute,
+  DomesticIndexRoute: DomesticIndexRoute,
 }
 
 const DomesticRouteWithChildren = DomesticRoute._addFileChildren(
