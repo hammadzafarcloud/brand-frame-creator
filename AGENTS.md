@@ -12,3 +12,5 @@
 - Keep marketing page content in a shared browser-safe data module and render service pages with a shared template so supplied copy remains consistent.
 - Use reusable React phone screens for app previews; they are illustrative demo UI, not connected customer data.
 - Define all visual colors and phone-frame styling in src/styles.css with semantic tokens.
+
+- Keep uploaded home-page section copy in a browser-safe shared data module and render it through dedicated home-section views so the supplied wording stays consistent.
