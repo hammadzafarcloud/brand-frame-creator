@@ -1,6 +1,6 @@
 # Roadmap
-- [ ] Apply supplied About Us sections and move About Us after Home in navigation.
-- [ ] Verify About Us content and navigation.
+- [x] Apply supplied About Us sections and move About Us after Home in navigation.
+- [x] Verify About Us content and navigation.
 - [x] Add brand tokens, uploaded logo and favicon.
 - [x] Build reusable app-style phone previews and selectable App gallery.
 - [x] Build home and supporting pages from supplied copy.
