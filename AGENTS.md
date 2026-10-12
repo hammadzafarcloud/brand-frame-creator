@@ -15,3 +15,4 @@
 
 - Keep uploaded home-page section copy in a browser-safe shared data module and render it through dedicated home-section views so the supplied wording stays consistent.
 - Keep supplied About page copy in a browser-safe data module and render it with a dedicated page view to preserve its section structure.
+- Parse supplied service copy into shared section data and use reusable FAQ and numbered-step views so all pages preserve complete questions and consistent accessible presentation.
