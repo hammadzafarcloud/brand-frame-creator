@@ -14,3 +14,4 @@
 - Define all visual colors and phone-frame styling in src/styles.css with semantic tokens.
 
 - Keep uploaded home-page section copy in a browser-safe shared data module and render it through dedicated home-section views so the supplied wording stays consistent.
+- Keep supplied About page copy in a browser-safe data module and render it with a dedicated page view to preserve its section structure.

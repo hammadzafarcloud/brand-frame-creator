@@ -1,0 +1,35 @@
+export const aboutContent = {
+  title: 'About Flip Power Plus',
+  subtitle: 'Making solar and electrical services simple, honest and dependable.',
+  storyTitle: 'Honest help for your power needs',
+  story: [
+    'Many people struggle to find honest technicians, understand their electricity bills or know what size solar system they really need. Calls go unanswered, quotes are unclear and nobody follows up once the job is done.',
+    'We started Flip Power Plus to change that. We bring skilled technicians, clear guidance and a simple app together, so homes and businesses can get the right help, on time, and always know what is happening with their job.',
+  ],
+  mission: 'Make clean, reliable power easy to access for every home and business in Pakistan.',
+  servicesTitle: 'One team for your whole power setup',
+  services: [
+    ['Solar', 'Installation, upgrades, cleaning, inspection and maintenance for homes and businesses.'],
+    ['Electrical and cooling', 'Wiring, repairs, load balancing, AC installation and repair, generators and EV chargers.'],
+    ['Guidance', 'Bill analysis, system sizing and energy audits, so you decide with clear information.'],
+  ],
+  valuesTitle: 'What guides our work',
+  values: [
+    ['Safety', 'Every job is done with safety first.'],
+    ['Honesty', 'Clear plans and no surprises. You approve the work before it starts.'],
+    ['Reliability', 'We show up when we say we will and we follow through.'],
+    ['Customer care', 'We listen, we explain in simple words and we stay in touch.'],
+  ],
+  appTitle: 'Why we built an app',
+  appText: 'Power problems do not wait for office hours. The Flip Power Plus app lets you book a service, raise a complaint, check your bill and track your job from your phone, any time.',
+  appBenefits: ['Book in a few taps', 'Follow your job live', 'Use the bill analyzer and solar calculator', 'Message support when you need help'],
+  audiences: [
+    { title: 'Homes', text: 'Houses, apartments, villas and farmhouses.', button: 'Explore Domestic Services', path: '/domestic' },
+    { title: 'Businesses', text: 'Shops, offices, clinics, schools and factories.', button: 'Explore Commercial Solutions', path: '/commercial' },
+  ],
+  joinTitle: 'Are you a skilled technician?',
+  joinText: 'Join our network, receive jobs through the app and grow your work with a team that values quality.',
+  joinBenefits: ['Get jobs in the app', 'Work in your area', 'Build your reputation'],
+  contactTitle: "Let's talk about your power needs",
+  contactText: 'Message us on WhatsApp or download the app and we will guide you.',
+} as const;
