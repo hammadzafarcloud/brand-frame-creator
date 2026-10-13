@@ -1,7 +1,7 @@
 # Roadmap
-- [ ] Fix headings and numbered steps throughout the dark website.
-- [ ] Display every supplied page FAQ in accessible plus-icon accordions.
-- [ ] Verify page layouts and interactions on desktop and mobile.
+- [x] Fix headings and numbered steps throughout the dark website.
+- [x] Display every supplied page FAQ in accessible plus-icon accordions.
+- [x] Verify page layouts and interactions on desktop and mobile.
 - [x] Apply supplied About Us sections and move About Us after Home in navigation.
 - [x] Verify About Us content and navigation.
 - [x] Add brand tokens, uploaded logo and favicon.

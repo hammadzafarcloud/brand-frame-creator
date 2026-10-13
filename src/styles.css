@@ -38,3 +38,42 @@
 .footer-links a:hover,.nav-group[open]>summary{color:var(--brand-blue)}
 
 .home-list{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:10px;font-size:12px;color:var(--muted-foreground)}.home-list li{display:flex;gap:9px;align-items:center}.home-list svg{width:14px;height:14px;color:var(--brand-blue)}.step h3{font-size:15px;margin-bottom:10px}.solar-process{margin-top:48px;padding-top:32px;border-top:1px solid var(--border);text-align:center}.solar-process h3{font-size:20px}.solar-process ol{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;list-style:none;padding:24px 0;font-size:12px;color:var(--muted-foreground)}.solar-process li{display:flex;align-items:center;gap:12px}.solar-process svg{width:15px;color:var(--brand-blue)}.solar-process li:last-child svg{display:none}.home-calculator-intro{max-width:600px;margin:0 auto 24px;text-align:center;font-size:14px;line-height:1.8;color:var(--muted-foreground)}.home-app-features{display:grid;grid-template-columns:1fr 1fr;gap:25px}.home-app-feature{display:flex;align-items:flex-start;gap:12px}.home-app-feature>svg{width:20px;color:var(--brand-blue)}.home-app-feature h3{font-size:13px;line-height:1.6}.home-app-feature p{font-size:12px;line-height:1.7;color:var(--muted-foreground);margin-top:5px}.qr-placeholder{display:flex;gap:10px;align-items:center;font-size:10px;color:var(--muted-foreground)}.qr-placeholder svg{width:35px;height:35px}.home-partners{display:grid;grid-template-columns:1fr 1fr;gap:60px}.home-partners h2{font-size:26px;margin:18px 0}.home-partners p{font-size:14px;line-height:1.8;color:var(--muted-foreground)}.home-floating{position:absolute;z-index:3;background:var(--secondary);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;align-items:center;gap:8px;font-size:10px;box-shadow:var(--soft-shadow)}.home-floating svg{width:17px;color:var(--brand-blue)}.secondary-notice{right:0;top:48px}.savings-notice{right:0;bottom:110px}.savings-notice svg{color:var(--primary)}@media(max-width:540px){.home-partners{grid-template-columns:1fr;gap:40px}.home-app-features{gap:20px 12px}.home-app-feature{gap:8px}.home-app-feature h3{font-size:12px}.home-floating{font-size:8px;padding:9px}.secondary-notice{top:12px}.savings-notice{bottom:75px}.home-app-feature>svg{width:16px}}
+
+/* Shared dark-section hierarchy, accessible FAQs and fluid page layouts. */
+:root{--heading-foreground:oklch(1 0 0);--description-foreground:oklch(.8 .012 255)}
+main h1,main h2,main h3,main h4{color:var(--heading-foreground)}
+main .phone h3,main .phone h4{color:var(--foreground)}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;text-align:left}
+.step{min-width:0;padding:20px 0;border-top:2px solid var(--border)}
+.step-number{display:block;color:var(--primary);font-size:13px;font-weight:750;margin-bottom:18px}
+.step h3{color:var(--heading-foreground);font-size:21px;font-weight:700;line-height:1.4;margin-bottom:12px;overflow-wrap:anywhere}
+.step p{color:var(--description-foreground);font-size:14px;line-height:1.85}
+.solar-process .steps{margin:28px 0;grid-template-columns:repeat(3,minmax(0,1fr))}
+.solar-process .step h3{font-size:18px}
+.faq-list{display:grid;gap:12px;max-width:850px;margin:0 auto}
+.faq-card{border:1px solid var(--border);border-radius:16px;background:var(--secondary);overflow:hidden;transition:border-color .2s}
+.faq-card[data-state=open]{border-color:var(--brand-blue)}
+.faq-card h3{margin:0}
+.faq-question{padding:23px 24px;color:var(--heading-foreground);font-size:15px;font-weight:650;line-height:1.6;min-height:72px;width:100%}
+.faq-question:hover{background:var(--accent)}
+.faq-question:focus-visible{outline:2px solid var(--primary);outline-offset:-3px}
+.faq-answer{padding:0 24px 24px}
+.faq-answer p{color:var(--description-foreground);font-size:14px;line-height:1.9;margin:0}
+.page-checklist{list-style:none;padding:0;margin:0 auto;max-width:900px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 32px}
+.page-checklist li{display:flex;align-items:flex-start;gap:12px;color:var(--description-foreground);font-size:14px;line-height:1.8}
+.page-checklist svg{width:20px;color:var(--brand-blue);margin-top:2px}
+.service-heading{position:relative;overflow:hidden;background:var(--secondary);padding-top:60px;padding-bottom:60px}
+.service-heading>.container{position:relative;z-index:1}
+.service-heading-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.15;mask-image:linear-gradient(90deg,transparent 15%,var(--foreground) 100%)}
+.service-heading .about-breadcrumb{flex-wrap:wrap}
+.feature-grid,.path-grid,.about-values,.home-app-features,.footer-grid{min-width:0}
+.feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.service-card,.path-card,.benefit,.gallery-copy{min-width:0;overflow-wrap:anywhere}
+.service-card>svg{width:30px;height:30px;padding:0;margin-bottom:4px}
+.hero-actions>a{max-width:100%;white-space:normal;height:auto;min-height:48px;text-align:center}
+.mobile-menu{max-height:calc(100dvh - 88px);overflow-y:auto;overscroll-behavior:contain}
+.screen-tabs>[role=tab]{white-space:normal;height:auto;min-height:42px}
+@media(max-width:1150px){.desktop-nav{display:none}.mobile-toggle{display:flex}.header-inner>.header-download{margin-left:auto}}
+@media(max-width:850px){.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-heading .hero-actions{justify-content:flex-start}}
+@media(max-width:540px){.feature-grid,.about-values,.page-checklist{grid-template-columns:1fr}.steps,.solar-process .steps{grid-template-columns:1fr;gap:8px}.step{display:grid;grid-template-columns:30px minmax(0,1fr);gap:0 14px;padding:22px 0}.step-number{margin:4px 0 0}.step h3{font-size:21px}.step p{grid-column:2;font-size:14px}.faq-question{padding:18px;font-size:14px;min-height:68px}.faq-answer{padding:0 18px 20px}.faq-answer p{font-size:13px}.service-heading{padding:38px 0}.service-heading h1{font-size:32px}.service-heading .hero-actions{display:grid;grid-template-columns:1fr}.mobile-menu{max-height:calc(100dvh - 76px)}.gallery-preview{padding-left:0;padding-right:0}.header-download{max-width:142px}.home-app-features{grid-template-columns:1fr}.home-floating{max-width:190px}.container{padding-left:20px;padding-right:20px}}
+@media(max-width:360px){.header-download{display:none}.gallery-preview .phone{width:260px;height:548px}.phone-stage{transform:scale(.9);transform-origin:top center;margin-bottom:-40px}}
