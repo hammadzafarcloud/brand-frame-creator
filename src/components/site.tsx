@@ -28,7 +28,7 @@ export function ContentPage({path}:{path:string}) {
   const sections=content.body.split(/\n\s*\n/).filter(s=>!s.startsWith('**Title:')&&!s.startsWith('**Subtitle:')&&!s.startsWith('---'));
   const business=path.startsWith('/commercial');
   const sectionViews=sections.map((section,i)=>{
-    const [label,...parts]=section.split('\n');
+    const [label='',...parts]=section.split('\n');
     const raw=cleanCopy(label);
     const heading=raw.replace(/^Section: /,'').replace(/\s*\([^)]*\)/g,'').replace(/:.*$/,'').replace(/\.$/,'');
     const after=label.includes('**') ? label.slice(label.lastIndexOf('**')+2).replace(/^[:.\s]+/,'') : '';
@@ -46,7 +46,7 @@ export function ContentPage({path}:{path:string}) {
       const links=path==='/domestic'?domesticLinks.slice(1):path==='/commercial'?commercialLinks.slice(1):[];
       return <section className="section" key={i}><div className="container"><div className="section-heading"><h2>{heading}</h2></div><div className="feature-grid">{lines.map((line,j)=>{const[t,d]=splitDetail(line.slice(2));const Icon=/solar|panel/i.test(t)?Sun:/electrical|wiring|load/i.test(t)?Zap:/backup|battery|generator/i.test(t)?ShieldCheck:CheckCircle2;return <article className="service-card" key={j}><Icon aria-hidden="true"/><h3>{t}</h3>{d&&<p>{d}</p>}{links[j]&&<Link to={links[j][0]} className="text-link">Explore services<ArrowRight/></Link>}</article>;})}</div></div></section>;
     }
-    if(text.includes(' | '))return <section className="section" key={i}><div className="container"><div className="section-heading"><h2>{heading}</h2></div><ul className="page-checklist">{cleanCopy(text).split(' | ').map(item=><li key={item}><CheckCircle2 aria-hidden="true"/>{item}</li>)}</ul></div></section>;
+    if(text.includes(' | ')&&!parts.some(l=>l.startsWith('Heading:')))return <section className="section" key={i}><div className="container"><div className="section-heading"><h2>{heading}</h2></div><ul className="page-checklist">{cleanCopy(text).split(' | ').map(item=><li key={item}><CheckCircle2 aria-hidden="true"/>{item}</li>)}</ul></div></section>;
     if(parts.some(l=>l.startsWith('Heading:'))) return <section className="section" key={i}><div className="container"><div className="section-heading"><h2>{parts.find(l=>l.startsWith('Heading:'))?.slice(9)}</h2><p>{parts.find(l=>l.startsWith('Text:'))?.slice(6)}</p></div><ul className="page-checklist">{parts.find(l=>l.startsWith('Bullets:'))?.slice(9).split(' | ').map(item=><li key={item}><CheckCircle2/>{item}</li>)}</ul></div></section>;
     return <section className="section" key={i}><div className="container section-heading"><h2>{heading}</h2>{text&&<p>{cleanCopy(text)}</p>}</div></section>;
   });
