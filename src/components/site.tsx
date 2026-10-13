@@ -25,7 +25,7 @@ export function ContentPage({path}:{path:string}) {
   if(!content)return null;
   const title=content.body.match(/\*\*Title:\*\* (.*)/)?.[1] ?? content.heading.replace(/ Page$/,'');
   const sub=content.body.match(/\*\*Subtitle:\*\* (.*)/)?.[1];
-  const sections=content.body.split(/\n\s*\n/).filter(s=>!s.startsWith('**Title:')&&!s.startsWith('**Subtitle:')&&!s.startsWith('---'));
+  const sections=content.body.split(/\n\s*\n|\n(?=\*\*Section:)/).filter(s=>!s.startsWith('**Title:')&&!s.startsWith('**Subtitle:')&&!s.startsWith('---'));
   const business=path.startsWith('/commercial');
   const sectionViews=sections.map((section,i)=>{
     const [label='',...parts]=section.split('\n');
